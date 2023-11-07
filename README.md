@@ -1,5 +1,6 @@
-# PCA-Implement-Matrix-Multiplication-using-CUDA-C.-Find-the-elapsed-time.
-
+### Exp No: 05
+### Date: 16-10-2023
+# <p align="center">Implement-Matrix-Multiplication-using-CUDA-C.-Find-the-elapsed-time</p>
 # Aim:
 To implement matrix multiplication using GPU.
 
