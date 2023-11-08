@@ -116,7 +116,43 @@ int main()
 ```
 
 ## Output:
-![image](https://github.com/curiouzs/-PCA-Implement-Matrix-Multiplication-using-CUDA-C.-Find-the-elapsed-time./assets/75234646/1b40b7a7-e980-43f3-8068-ff07cbf951e2)
+```
+root@MidPC:/home/student/Desktop# nvcc first.cu
+root@MidPC:/home/student/Desktop# ./a.out
+Result Matrix:
+14 8 2 -4 
+20 10 0 -10 
+26 12 -2 -16 
+32 14 -4 -22 
+Elapsed Time: 0.000023 seconds
+root@MidPC:/home/student/Desktop# nvprof ./a.out
+==18221== NVPROF is profiling process 18221, command: ./a.out
+Result Matrix:
+14 8 2 -4 
+20 10 0 -10 
+26 12 -2 -16 
+32 14 -4 -22 
+Elapsed Time: 0.000037 seconds
+==18221== Profiling application: ./a.out
+==18221== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   39.90%  2.5280us         1  2.5280us  2.5280us  2.5280us  matrixMultiply(int*, int*, int*, int)
+                   38.89%  2.4640us         2  1.2320us     928ns  1.5360us  [CUDA memcpy HtoD]
+                   21.21%  1.3440us         1  1.3440us  1.3440us  1.3440us  [CUDA memcpy DtoH]
+      API calls:   99.38%  126.78ms         3  42.262ms  2.2600us  126.78ms  cudaMalloc
+                    0.28%  356.84us         1  356.84us  356.84us  356.84us  cuDeviceTotalMem
+                    0.20%  252.08us        97  2.5980us     210ns  107.52us  cuDeviceGetAttribute
+                    0.07%  87.360us         3  29.120us  2.5700us  79.360us  cudaFree
+                    0.03%  36.470us         1  36.470us  36.470us  36.470us  cuDeviceGetName
+                    0.02%  29.180us         3  9.7260us  5.9900us  12.080us  cudaMemcpy
+                    0.02%  23.180us         1  23.180us  23.180us  23.180us  cudaLaunchKernel
+                    0.00%  4.5900us         1  4.5900us  4.5900us  4.5900us  cuDeviceGetPCIBusId
+                    0.00%  2.4000us         3     800ns     250ns  1.8100us  cuDeviceGetCount
+                    0.00%     930ns         2     465ns     210ns     720ns  cuDeviceGet
+                    0.00%     310ns         1     310ns     310ns     310ns  cuDeviceGetUuid
+root@MidPC:/home/student/Desktop# 106 
+```
+![image](https://github.com/25tharunkumar/-PCA-Implement-Matrix-Multiplication-using-CUDA-C.-Find-the-elapsed-time./assets/123470785/db6061ae-6ca8-4cd3-b003-4d7fbe02784f)
 
 ## Result:
 Thus, the program to implement matrix multiplication using the GPU has been successfully executed.
